@@ -1,3 +1,8 @@
+<?php
+require_once('public/data.php');
+require_once('public/menu.php');
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -5,8 +10,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ECsite</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="media.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/media.css">
   <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
@@ -43,9 +48,28 @@
   <main>
     <div class="container">
       <h1 class="con-title">contents</h1>
+      <?php foreach ($menus as $menu): ?>
       <div class="contents">
-        
+        <img src="<?php echo $menu->getImage() ?>" alt="">
+        <div class="con-text">
+          <div class="menu-name">
+            <h4><?php echo $menu->getName() ?></h4>
+            <h5>¥<?php echo $menu->getPrice() ?></h5>
+          </div>
+          <p>.text..text..text..text..text..text..text..text..text..text..text..text..text..text..text..text..text..text..text..text..text..text</p>
+          <a href="show.php"><button>詳しくはこちら</button></a>
+        </div>
+        <div class="con-text">
+        <div class="menu-name">
+            <h4>クリームパン</h4>
+            <h5>¥300</h5>
+          </div>
+          <p>.text..text..text..text..text..text..text..text..text..text..text..text..text..text..text..text..text..text..text..text..text..text</p>
+          <a href="show.php"><button>詳しくはこちら</button></a>
+        </div>
+        <img src="img/anpan.jpg" alt="">
       </div>
+      <?php endforeach; ?>
     </div>
   </main>
 
